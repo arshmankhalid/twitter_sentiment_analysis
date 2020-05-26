@@ -1,5 +1,6 @@
 # Team 20
-# Class: COMP90024 ASSIGNMENT 2 - Semester 2, 2019
+# Installing the couchdb cluster
+#Nikitaa Rajan - Team 20
 
 
 ARGNUM=$#
@@ -23,11 +24,11 @@ echo "deb https://apache.bintray.com/couchdb-deb bionic main" | sudo tee -a /etc
 sudo apt update -y
 
 
-# Set the password variable.
+
 echo "== setting password for couchdb ===="
 COUCHDB_PASSWORD=admin
 
-# Bindaddress: 0.0.0.0 (does not bind to anything).
+
 echo "== Setting up cluster variable for couch =="
 echo "couchdb couchdb/mode select clustered
 couchdb couchdb/mode seen true
@@ -42,7 +43,7 @@ couchdb couchdb/adminpass seen true
 couchdb couchdb/adminpass_again password ${COUCHDB_PASSWORD}
 couchdb couchdb/adminpass_again seen true" | sudo debconf-set-selections
 
-# We enter non-interactive mode instead of interactive mode here.
+
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -y couchdb
 systemctl enable couchdb
 systemctl status couchdb

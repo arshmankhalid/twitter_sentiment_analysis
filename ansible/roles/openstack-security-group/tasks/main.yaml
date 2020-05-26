@@ -1,3 +1,5 @@
+#Creation of SecurityGroup
+#Nikitaa Rajan - Group 20
 - name: create a security group
   os_security_group:
     name: '{{ item.name }}'
