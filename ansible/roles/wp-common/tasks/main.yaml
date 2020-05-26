@@ -1,0 +1,54 @@
+---
+- name: Gather facts of remote host
+  setup:
+    gather_subset: all
+
+
+- name: install python3
+  become: yes
+  apt:
+    name: ['python3']
+    state: latest
+    
+  
+- name: Install pip
+  become: yes
+  apt:
+    name: ['python3-pip']
+    state: latest
+    update_cache: yes
+  when: ansible_distribution == "Ubuntu"
+  
+  
+- name: Clone harvester git repo
+  git:
+    repo: https://github.com/arshmankhalid/twitter_sentiment_analysis.git
+    dest: /home/ubuntu/CCCgrp20
+    accept_hostkey: yes
+   
+  
+
+- name: Update pip
+  become: yes
+  pip:
+    name: ['pip']
+    state: latest
+  
+- name: Install time
+  become: yes
+  pip:
+    name: ['python-time']
+    state: latest
+  
+- name: Install Tweepy
+  become: yes
+  pip:
+    name: ['tweepy']
+    state: latest
+    
+- name: Install textblob
+  become: yes
+  pip:
+    name: ['textblob']
+    state: latest
+  

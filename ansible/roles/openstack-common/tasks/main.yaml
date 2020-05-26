@@ -1,0 +1,50 @@
+
+- name: install python
+  become: yes
+  apt:
+    name: ['python']
+    state: latest
+    update_cache: yes
+  when: ansible_distribution == "Ubuntu"
+  
+- name: install pip
+  become: yes
+  apt:
+    name: ['python3-pip']
+    state: latest
+    update_cache: yes
+  when: ansible_distribution == "Ubuntu"
+  
+
+- name: Update pip
+  become: yes
+  pip:
+    name: ['pip']
+    state: latest
+
+
+  
+- name: Install time
+  become: yes
+  pip:
+    name: ['python-time']
+    state: latest
+  
+- name: Install Tweepy
+  become: yes
+  pip:
+    name: ['tweepy']
+    state: latest
+    
+- name: Install textblob
+  become: yes
+  pip:
+    name: ['textblob']
+    state: latest
+  
+- name: Install openstacksdk
+  become: yes
+  pip:
+    name: ['openstacksdk==0.36.2']
+    state: latest
+    

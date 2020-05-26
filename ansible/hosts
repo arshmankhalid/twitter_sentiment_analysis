@@ -1,0 +1,9 @@
+[HOSTS]
+172.26.132.67
+172.26.131.121
+
+[HOSTS:vars]
+ansible_python_interpreter=/usr/bin/python3
+ansible_user=ubuntu
+ansible_ssh_private_key_file=/etc/ansible/newKeypair.pem
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'

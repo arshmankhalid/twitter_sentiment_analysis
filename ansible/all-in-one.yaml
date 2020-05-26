@@ -1,0 +1,21 @@
+- hosts: localhost
+  vars_files:
+    - host_vars/nectar.yaml
+  
+  gather_facts: true
+
+  roles:
+    - role: openstack-common
+    - role: openstack-volume
+    - role: openstack-security-group
+    - role: openstack-images
+    - role: openstack-instance 
+
+
+
+- hosts: HOSTS
+  remote_user: ubuntu
+  gather_facts: true
+  roles:
+    - role: wp-common 
+    

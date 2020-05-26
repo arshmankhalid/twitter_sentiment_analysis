@@ -13,7 +13,7 @@ echo "nodename couchdb@{$NODENAME}"
 
 # Update cache.
 sudo apt-get update
-
+sudo bash -c "cat cluster_kernel.txt >> /opt/couchdb/etc/vm.args"
 sudo apt install python-pip
 sudo pip install docker-compose
 sudo apt update && sudo apt upgrade
@@ -21,6 +21,7 @@ sudo read -t 10
 curl -L https://couchdb.apache.org/repo/bintray-pubkey.asc | sudo apt-key add 
 echo "deb https://apache.bintray.com/couchdb-deb bionic main" | sudo tee -a /etc/apt/sources.list
 sudo apt update
+
 
 # Set the password variable.
 echo "== setting password for couchdb ===="
