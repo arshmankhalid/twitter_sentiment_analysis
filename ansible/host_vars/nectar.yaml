@@ -1,0 +1,57 @@
+availability_zone: melbourne-qh2-uom
+
+
+volumes:
+  - vol_name: volume1
+    vol_size: 50
+  - vol_name: volume2
+    vol_size: 50
+
+
+    
+security_groups:
+  - name: ssh2
+    description: "SSH ACCESS2"
+    protocol: tcp
+    port_range_min: 22
+    port_range_max: 22
+    remote_ip_prefix: 0.0.0.0/0
+  - name: http2
+    description: "HTTP2"
+    protocol: tcp
+    port_range_min: 80
+    port_range_max: 80
+    remote_ip_prefix: 0.0.0.0/0
+
+  - name: couchdb2
+    description: "HTTP2"
+    protocol: tcp
+    port_range_min: 5984
+    port_range_max: 5987
+    remote_ip_prefix: 0.0.0.0/0
+
+  - name: couchdbcluster2
+    description: "HTTP"
+    protocol: tcp
+    port_range_min: 9100
+    port_range_max: 9200
+    remote_ip_prefix: 0.0.0.0/0
+
+  - name: couchdberlang2
+    description: "HTTP"
+    protocol: tcp
+    port_range_min: 4368
+    port_range_max: 5000
+    remote_ip_prefix: 0.0.0.0/0
+
+
+instances:
+  - name: instance-1
+    volumes: ['volume1']
+  - name: instance-2
+    volumes: ['volume2']
+    
+instance_image: 215f9775-483c-4e0a-b703-d21a5c966f2e
+instance_key_name: newKeypair
+instance_flavor: uom.mse.2c9g
+instance_network: qh2-uom-internal

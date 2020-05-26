@@ -12,15 +12,15 @@ NODENAME=$(/sbin/ip -o -4 addr list eth0 | awk '{print $4}' | cut -d/ -f1)
 echo "nodename couchdb@{$NODENAME}"
 
 # Update cache.
-sudo apt-get update -y
-#sudo bash -c "cat cluster_kernel.txt >> /opt/couchdb/etc/vm.args"
-sudo apt install -y python-pip
-sudo pip install -y docker-compose
-sudo apt update -y && sudo apt upgrade -y
+sudo apt-get update
+sudo bash -c "cat cluster_kernel.txt >> /opt/couchdb/etc/vm.args"
+sudo apt install python-pip
+sudo pip install docker-compose
+sudo apt update && sudo apt upgrade
 sudo read -t 10
 curl -L https://couchdb.apache.org/repo/bintray-pubkey.asc | sudo apt-key add 
 echo "deb https://apache.bintray.com/couchdb-deb bionic main" | sudo tee -a /etc/apt/sources.list
-sudo apt update -y
+sudo apt update
 
 
 # Set the password variable.
@@ -48,9 +48,9 @@ systemctl enable couchdb
 systemctl status couchdb
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 sudo apt-get install -y nodejs
-sudo apt install -y node-grunt-cli
+sudo apt install node-grunt-cli
 sudo docker pull ibmcom/couchdb3:3.0.0
-sudo apt update -y
+sudo apt update
 
 sudo docker create\
       --name couchdb$NODENAME\
