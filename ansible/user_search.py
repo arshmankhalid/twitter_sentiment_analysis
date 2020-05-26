@@ -13,7 +13,7 @@ access_secret = 'Ix7ShXKNWPkEYIaab42KNAybsnepWgvEtY4wnBdqamTSA'
 
 member = 'admin'
 pw = 'admin'
-host = '172.26.130.74'
+host = sys.argv[1]
 port = 5984
 debug = True
 

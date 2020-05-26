@@ -11,7 +11,7 @@ args = parser.parse_args()
 
 member = 'admin'
 pw = 'admin'
-host = '172.26.133.251'
+host = sys.argv[1]
 port = 5984
 debug = True
 

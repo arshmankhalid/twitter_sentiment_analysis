@@ -1,0 +1,11 @@
+
+- name: Install packages required for harvester
+  become: yes
+  pip:
+    requirements: /home/ubuntu/CCCgrp20/ansible/packages.txt
+
+- name: start stream harvester
+  shell: nohup python3 ~/CCCgrp20/ansible/userStream.py 'IPADDRESS' &
+
+- name: start search harvester
+  shell: nohup python3 ~/CCCgrp20/ansible/user_search.py 'IPADDRESS' &
