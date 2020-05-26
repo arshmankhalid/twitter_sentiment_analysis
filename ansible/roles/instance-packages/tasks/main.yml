@@ -65,22 +65,20 @@
     state: latest
     executable: pip3
 
-- name: Install couchdb
+
+- name: change script permissions
   become: yes
-  pip:
-    name: ['couchdb']
-    state: latest
-    executable: pip3
-
-
-
-
-
+  shell: |
+    sudo chmod 777 /home/ubuntu/CCCgrp20/prechanges.sh
 - name: change script permissions
   become: yes
   shell: |
     sudo chmod 777 /home/ubuntu/CCCgrp20/install_couchdb.sh
 
+
 - name: install couchdb
   become: yes
-  command: sh /home/ubuntu/CCCgrp20/install_couchdb.sh
+  command: sh /home/ubuntu/CCCgrp20/prechanges.sh
+- name: install couchdb
+  become: yes
+  command: sh /home/ubuntu/CCCgrp20/install_couchdb.sh "172.26.132.134"
