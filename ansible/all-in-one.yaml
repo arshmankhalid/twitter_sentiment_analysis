@@ -13,10 +13,10 @@
 
 
 
-- hosts: HOSTS
-  remote_user: ubuntu
-  gather_facts: true
-  roles:
-    - role: wp-common 
-    - role: instance-packages
-    - role: twitter
+#- hosts: HOSTS
+ # remote_user: ubuntu
+  #gather_facts: true
+  #roles:
+   # - role: wp-common 
+    #- role: instance-packages
+    #- role: twitter
