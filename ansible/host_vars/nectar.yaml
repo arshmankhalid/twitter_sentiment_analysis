@@ -6,7 +6,7 @@ availability_zone: melbourne-qh2-uom
 volumes:
   - vol_name: volume1
     vol_size: 50
-  - vol_name: volume2
+  - vol_name: volume4
     vol_size: 50
 
 
@@ -50,7 +50,7 @@ security_groups:
 instances:
   - name: instance-1
     volumes: ['volume1']
-  - name: instance-2
+  - name: instance-4
     volumes: ['volume2']
     
 instance_image: 215f9775-483c-4e0a-b703-d21a5c966f2e
